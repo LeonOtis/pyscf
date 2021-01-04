@@ -18,7 +18,7 @@ from .addons import as_pyscf_method
 
 def optimize(method, solver="berny", *args, **kwargs):
     print
-    print ">>>>>>>>> geometry optimizer: ", solver
+    print(">>>>>>>>> geometry optimizer: ", solver)
     print
     if (solver == "berny"):
         try:

@@ -866,6 +866,7 @@ To enable the solvent model for CASSCF, a decoration to CASSCF object as below n
         else:
             self.converged = True
         self._finalize()
+        print("Inside Kernel")
         return self.e_tot, self.e_cas, self.ci, self.mo_coeff, self.mo_energy
 
     def _finalize(self):
