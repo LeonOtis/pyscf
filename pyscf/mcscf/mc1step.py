@@ -715,7 +715,7 @@ def eval_energy(mol, h1e_ao, enuc, mo_coeff, ncas, casdm1, casdm2): # objective 
 
 
 
-def genMOandCI(mc, mol, civec=None, mo_coeff=None):
+def genMOandCI(mc, mol, civec=None, mo_coeff=None,coeff_cutoff=.001):
 
     if mo_coeff is None:
         mo_coeff = mc.mo_coeff
@@ -808,11 +808,11 @@ def genMOandCI(mc, mol, civec=None, mo_coeff=None):
     print(" ALPHA   |  BETA    | COEFFICIENT")
     for i in xrange(nocc):
         sys.stdout.write("-")
-    print("-|-",)
+    print "-|-",
     for i in xrange(nocc):
         sys.stdout.write("-")
         #print "-",
-    print("-|-",)
+    print "-|-",
     for i in xrange(20):
         sys.stdout.write("-")
         #print "-",
@@ -820,11 +820,11 @@ def genMOandCI(mc, mol, civec=None, mo_coeff=None):
     #print "   ", stringa
     #print "   ", stringb
     for i in xrange(len(string)):
-            if abs(string[i][2]) > 1e-08:
+            if abs(string[i][2]) > coeff_cutoff:
                 sys.stdout.write(str(string[i][0]))
-                print(" | ",)
+                print " | ",
                 sys.stdout.write(str(string[i][1]))
-                print(" | ",)
+                print " | ",
                 sys.stdout.write(str(string[i][2]))
                 print
     print("..... DONE WITH GENERAL CI COMPUTATION ..... ")
